@@ -30,9 +30,10 @@ class LineController extends Controller
         $richmenuId="richmenu-e6331662f9cee7852e0f4f6dbe1f6aeb";
         $response=$this->bot->downloadRichMenuImage($richmenuId);
         if ($response->isSucceeded()) {
+            $ecdata=base64_encode($response->getRawBody());
             $decdata = base64_decode($response->getRawBody());
             echo 'Succeeded!';
-            echo $decdata;
+            echo $ecdata;
             return;
         }
         // $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
