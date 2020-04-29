@@ -28,32 +28,38 @@ class LineController extends Controller
         ];
         // echo('richmenuid:'.$richmenuId);
         $richmenuId="richmenu-e6331662f9cee7852e0f4f6dbe1f6aeb";
-        $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
-            'headers' => $headers
-        ]);
-        //status
-        $status=$response->getStatusCode();
-        if($status==200){
-            echo($status.'ok');
-            // Get all of the response headers.
-            foreach ($response->getHeaders() as $name => $values) {
-                echo $name . ': ' . implode(', ', $values) . "\r\n";
-            }
-            $body=$response->getBody();
-            $body64=base64_decode($body);
-            //下載檔案
-            //Storage::download('file.jpg');
-            
-            // // response()->download($response);
-            // //body 
-            // $body=$response->getBody();
-            // echo($body);
-            // // echo($response->getHeader('Content-Type'));
-            // echo($body->getContents());
-            return view('welcome',['body'=>$body64]);
+        $response=$this->bot->downloadRichMenuImage($richmenuId);
+        if ($response->isSucceeded()) {
+            echo 'Succeeded!';
+            echo $response->getRawBody();
+            return;
         }
-        else
-            echo('None');
+        // $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
+        //     'headers' => $headers
+        // ]);
+        // //status
+        // $status=$response->getStatusCode();
+        // if($status==200){
+        //     echo($status.'ok');
+        //     // Get all of the response headers.
+        //     foreach ($response->getHeaders() as $name => $values) {
+        //         echo $name . ': ' . implode(', ', $values) . "\r\n";
+        //     }
+        //     $body=$response->getBody();
+        //     $body64=base64_decode($body);
+        //     //下載檔案
+        //     //Storage::download('file.jpg');
+            
+        //     // // response()->download($response);
+        //     // //body 
+        //     // $body=$response->getBody();
+        //     // echo($body);
+        //     // // echo($response->getHeader('Content-Type'));
+        //     // echo($body->getContents());
+        //     return view('welcome',['body'=>$body64]);
+        // }
+        // else
+        //     echo('None');
     }
 
 }
