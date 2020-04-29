@@ -38,8 +38,10 @@ class LineController extends Controller
             // response()->download($response);
             //body 
             $body=$response->getBody();
+            echo($body);
             // echo($response->getHeader('Content-Type'));
-            return view('welcome',['body'=>$body->getContents()]);
+            echo($body->getContents());
+            return view('welcome',['body'=>$body]);
         }
         else
             echo('None');
