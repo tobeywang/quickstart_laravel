@@ -13,5 +13,11 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div>
+            <p>Take a Show</p>
+            <img src="data:{{$conttenttype}}};base64, {{ $body }}" alt="Red dot" />
+          </div>
+    </div>
 </div>
 @endsection

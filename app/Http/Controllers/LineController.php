@@ -35,12 +35,14 @@ class LineController extends Controller
         $status=$response->getStatusCode();
         if($status==200){
             echo($status.'ok');
+            // response()->download($response);
             //body 
             $body=$response->getBody();
-            echo($body);
+            echo($response->getHeader('Content-Type'));
+            return view('welcome',['body'=>$body,'conttenttype'=>$response->getHeader('Content-Type')]);
         }
-        echo('None');
-
+        else
+            echo('None');
     }
 
 }
