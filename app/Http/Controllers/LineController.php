@@ -30,8 +30,10 @@ class LineController extends Controller
         $richmenuId="richmenu-e6331662f9cee7852e0f4f6dbe1f6aeb";
         $response=$this->bot->downloadRichMenuImage($richmenuId);
         if ($response->isSucceeded()) {
+            //Image to binary conversion: ps.明明傳來的是說binary data
             $ecdata=base64_encode($response->getRawBody());
-            $decdata = base64_decode($response->getRawBody());
+            //Binary to image conversion:
+            //$decdata = base64_decode($response->getRawBody());
             echo 'Succeeded!';
             // echo $ecdata;
             return view('welcome',['body'=>$ecdata]);
