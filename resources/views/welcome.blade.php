@@ -16,7 +16,7 @@
     <div class="row">
         <div>
             <p>Take a Show</p>
-            <img src="data:{{$conttenttype}}};base64, {{ $body }}" alt="Red dot" />
+            <img src="data:image/png;base64, {{ $body }}" alt="Red dot" />
           </div>
     </div>
 </div>
