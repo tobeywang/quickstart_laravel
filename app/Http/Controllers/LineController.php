@@ -33,8 +33,8 @@ class LineController extends Controller
             $ecdata=base64_encode($response->getRawBody());
             $decdata = base64_decode($response->getRawBody());
             echo 'Succeeded!';
-            echo $ecdata;
-            return;
+            // echo $ecdata;
+            return view('welcome',['body'=>$ecdata]);
         }
         // $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
         //     'headers' => $headers
