@@ -24,15 +24,17 @@ class LineController extends Controller
         $client = new Client();
         $headers = [
             'Authorization' => 'Bearer ' . env('LINE_CHANNEL_TOKEN'),
+            'Content-Type'=>'image/pjpeg'
         ];
         echo('richmenuid:'.$richmenuId);
         $richmenuId="richmenu-e6331662f9cee7852e0f4f6dbe1f6aeb";
-        $response = $client->request('POST', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content/', [
+        $response = $client->request('POST', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
             'headers' => $headers
         ]);
         //status
         $status=$response->getStatusCode();
         if($status==200){
+            echo($status.'ok');
             //body 
             $body=$response->getBody();
             echo($body);
