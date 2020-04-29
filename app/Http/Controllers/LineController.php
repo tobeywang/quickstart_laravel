@@ -35,13 +35,22 @@ class LineController extends Controller
         $status=$response->getStatusCode();
         if($status==200){
             echo($status.'ok');
-            // response()->download($response);
-            //body 
+            // Get all of the response headers.
+            foreach ($response->getHeaders() as $name => $values) {
+                echo $name . ': ' . implode(', ', $values) . "\r\n";
+            }
             $body=$response->getBody();
-            echo($body);
-            // echo($response->getHeader('Content-Type'));
-            echo($body->getContents());
-            return view('welcome',['body'=>$body]);
+            $body64=base64_decode($body);
+            //下載檔案
+            //Storage::download('file.jpg');
+            
+            // // response()->download($response);
+            // //body 
+            // $body=$response->getBody();
+            // echo($body);
+            // // echo($response->getHeader('Content-Type'));
+            // echo($body->getContents());
+            return view('welcome',['body'=>$body64]);
         }
         else
             echo('None');
