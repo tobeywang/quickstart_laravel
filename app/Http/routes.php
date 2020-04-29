@@ -13,6 +13,7 @@
 
 use App\Task;
 use Illuminate\Http\Request;
+// use Symfony\Component\Routing\Route;
 
 Route::get('/hello', function () {
     $databaseName = Config::get('database.connections.'.Config::get('database.default'));
@@ -21,6 +22,7 @@ Route::get('/hello', function () {
     //echo ($databaseName['host']);
     return view('cutpic',['host'=>$databaseName]);
 });
+Route::get('/linebot/getrichmenuimg/{richmenuid}', 'LineController@getrichmenuImgAndSave');
 
 Route::group(['middleware' => ['web']], function () {
     /**
