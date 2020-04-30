@@ -16,7 +16,7 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     @yield('extcss')
     <style>
-        /* .divcss5{ border:1px solid #000; width:300px; height:100px;overflow:hidden}  */
+        .divcss5{ border:1px solid #000; width:300px; height:202px;overflow:hidden} 
         .divcss5 img{max-width:300px;_width:expression(this.width > 300 ? "300px" : this.width);} 
         body {
             font-family: 'Lato';

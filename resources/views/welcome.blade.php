@@ -17,9 +17,12 @@
         <div>
             <p>Take a Show</p>
             <div class="divcss5"> 
-            <img src="data:image/png;base64, {{ $body }}" alt="Red dot"  />
+                <img src="data:image/png;base64, {{ $body }}" alt="Red dot"  />
             </div>
-          </div>
+            <div>
+                {{ $imageInfo }}
+            </div>
+            </div>
     </div>
 </div>
 @endsection

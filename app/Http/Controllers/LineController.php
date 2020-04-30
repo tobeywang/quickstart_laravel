@@ -35,9 +35,8 @@ class LineController extends Controller
             $ecdata=base64_encode($image);
             //Binary to image conversion:
             //$decdata = base64_decode($response->getRawBody());
-            // $imageInfo=getimagesizefromstring($image);
-            // echo $imageInfo;
-            return view('welcome',['body'=>$ecdata]);
+            $imageInfo=getimagesizefromstring($image);
+            return view('welcome',['body'=>$ecdata,'imageInfo'=>$imageInfo]);
         }
         
         // $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
