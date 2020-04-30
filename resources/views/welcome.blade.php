@@ -20,7 +20,9 @@
                 <img src="data:image/png;base64, {{ $body }}" alt="Red dot"  />
             </div>
             <div>
-                {{ $imageInfo }}
+                @foreach ($info as $imageInfo)
+                    <div> {{$info}}</div>
+                @endforeach
             </div>
             </div>
     </div>

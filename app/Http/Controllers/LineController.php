@@ -36,6 +36,13 @@ class LineController extends Controller
             //Binary to image conversion:
             //$decdata = base64_decode($response->getRawBody());
             $imageInfo=getimagesizefromstring($image);
+            // output:
+            // [0]=> int(667) 
+            // [1]=> int(184) 
+            // [2]=> int(3) 
+            // [3]=> string(24) "width="667" height="184"" 
+            // ["bits"]=> int(8) 
+            // ["mime"]=> string(9) "image/png" 
             return view('welcome',['body'=>$ecdata,'imageInfo'=>$imageInfo]);
         }
         
