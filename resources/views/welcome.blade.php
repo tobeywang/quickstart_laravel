@@ -19,12 +19,6 @@
             <div class="divcss5"> 
                 <img src="data:image/png;base64, {{ $body }}" alt="Red dot"  />
             </div>
-            <div>
-                @foreach ($info as $imageInfo)
-                    <div> {{$info}}</div>
-                @endforeach
-            </div>
-            </div>
     </div>
 </div>
 @endsection

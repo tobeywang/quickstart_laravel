@@ -43,7 +43,10 @@ class LineController extends Controller
             // [3]=> string(24) "width="667" height="184"" 
             // ["bits"]=> int(8) 
             // ["mime"]=> string(9) "image/png" 
-            return view('welcome',['body'=>$ecdata,'imageInfo'=>$imageInfo]);
+            foreach ($imageInfo as $info){
+                echo $info;
+            }
+            // return view('welcome',['body'=>$ecdata]);
         }
         
         // $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
