@@ -31,13 +31,15 @@ class LineController extends Controller
         $response=$this->bot->downloadRichMenuImage($richmenuId);
         if ($response->isSucceeded()) {
             //Image to binary conversion: ps.明明傳來的是說binary data
-            $ecdata=base64_encode($response->getRawBody());
+            $image=$response->getRawBody();
+            $ecdata=base64_encode($image);
             //Binary to image conversion:
             //$decdata = base64_decode($response->getRawBody());
-            echo 'Succeeded!';
-            // echo $ecdata;
+            // $imageInfo=getimagesizefromstring($image);
+            // echo $imageInfo;
             return view('welcome',['body'=>$ecdata]);
         }
+        
         // $response = $client->request('GET', 'https://api-data.line.me/v2/bot/richmenu/' . $richmenuId . '/content', [
         //     'headers' => $headers
         // ]);
